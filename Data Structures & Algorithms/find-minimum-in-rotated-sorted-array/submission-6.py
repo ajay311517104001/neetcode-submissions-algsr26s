@@ -1,0 +1,16 @@
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l = 0
+        r = len(nums) -1
+        golbal_min = float('+inf')
+        while l<= r:
+            m = (l+r)//2 
+            golbal_min = min(golbal_min , nums[m])
+            if nums[l] <= nums[m]:
+                golbal_min = min(golbal_min , nums[l])
+                l= m+1
+            elif nums[m] <= nums[r]:
+                r= m-1
+        return golbal_min if golbal_min != float('+inf') else 0
+        
+        
